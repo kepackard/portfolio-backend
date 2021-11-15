@@ -32,9 +32,17 @@ app.use(express.urlencoded({ extended:false }))
 app.use(methodOverride("method"))
 
 //CONTROLLERS
+//INDEX
 app.get("/portfolio", (req, res) => {
-    res.send("Welcome to my portfolio!");
+    res.render("index.ejs");
 })
+
+//SHOW ROUTE
+app.get("/portfolio/about", (req, res) => {
+    res.render("about.ejs");
+})
+
+// app.get("/portfolio)
 
 //LISTENER
 app.listen(PORT, () => {
