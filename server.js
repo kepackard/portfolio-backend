@@ -37,12 +37,41 @@ app.get("/portfolio", (req, res) => {
     res.render("index.ejs");
 })
 
-//SHOW ROUTE
-app.get("/portfolio/about", (req, res) => {
-    res.render("about.ejs");
-})
+//ABOUT ROUTE
+app.get("/portfolio/about", async (req, res) => {
+    try {
+        res.json({ message: "This is my About Page"})
+    } catch (error) {
+        res.status(400).json(error);
+    }
+});
 
-// app.get("/portfolio)
+//RESUME ROUTE
+app.get("/portfolio/resume", (req, res) => {
+    try {
+        res.json({ message: "Here is my Resume"})
+    } catch (error) {
+        res.status(400).json(error);
+    }
+});
+
+//PORTFOLIO PAGE
+app.get("/portfolio/projects", (req, res) => {
+    try {
+        res.json({ message: "These are my recent projects"})
+    } catch (error) {
+        res.status(400).json(error);
+    }
+});
+
+//CONTACT PAGE
+app.get("/portfolio/contact", (req, res) => {
+    try {
+        res.json({ message: "Here's how to contact me form" })
+    } catch (error) {
+        res.status(400).jason(error);
+    }
+});
 
 //LISTENER
 app.listen(PORT, () => {
